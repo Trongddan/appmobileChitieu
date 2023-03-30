@@ -1,34 +1,3 @@
-// import { StyleSheet, Text, View } from "react-native";
-// import React from "react";
-// import { ImageBackground } from "react-native";
-// import styles from "./styles";
-// import { TextInput } from "react-native";
-// import { Button,Image} from "react-native";
-// import { TouchableOpacity } from "react-native";
-// // import styles from "./styles";
-// const LoginScreen = () => {
-//   const bg = require('../../assets/bg.jpg');
-//   const logo = require('../../assets/logo.png')
-//   return (
-//     <View style={styles.container}>
-//       <ImageBackground style={styles.background}  source={bg} />
-//       <Image style={styles.logo} source={logo}/>
-//       <View style={styles.inputgroup}>
-//         <TextInput placeholder="Tài khoản" style={styles.input}/>
-//       </View>
-//       <View style={styles.inputgroup}>
-//         <TextInput secureTextEntry={true}  placeholder="Mật khẩu" style={styles.input}/>
-//       </View>
-//       <View  style={styles.btnLogin} >
-//         <TouchableOpacity>
-//         <Text style={styles.loginText} >Đăng nhập</Text>
-//         </TouchableOpacity>
-//       </View>
-//     </View>
-//   );
-// };
-
-// export default LoginScreen;
 import React, { Component, useEffect, useState } from "react";
 import {
   Image,
@@ -38,7 +7,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-
+import { Toast } from "toastify-react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { LoginRequest } from "../../services/userService";
@@ -52,8 +21,14 @@ const LoginScreen = () => {
     const params = { username: username, password: password };
     LoginRequest(
       params,
-      (res) => {},
-      (err) => {}
+      (res) => {
+        Toast.success("Đăng nhập thành công");
+        navigation.navigate("Home")
+      },
+      (err) => {
+        console.log(err);
+        Toast.error("Đăng nhập thất bại");
+      }
     );
   };
   return (

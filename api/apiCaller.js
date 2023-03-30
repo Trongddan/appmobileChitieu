@@ -1,16 +1,16 @@
 import  axios  from "axios";
-// axios.interceptors.request.use((config)=>{
-//   const token = "";
-//   if(token){
-//     config.headers.Authorization=`Bearer ${token}`
-//   }
-//   return config;
-// })
-// axios.interceptors.response.use((res)=>{return res},(err)=>{
-//   return new Promise((resolve,reject)=>{
-//     return reject(err)
-//   })
-// })
+axios.interceptors.request.use((config)=>{
+  const token = "";
+  if(token){
+    config.headers.Authorization=`Bearer ${token}`
+  }
+  return config;
+})
+axios.interceptors.response.use((res)=>{return res},(err)=>{
+  return new Promise((resolve,reject)=>{
+    return reject(err)
+  })
+})
 export const getRequest = (
   url = "",
   params,
