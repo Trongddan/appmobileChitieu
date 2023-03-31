@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    backgroundColor:"#000040"
   },
   background: {
     position: "absolute",
@@ -35,7 +36,7 @@ const styles = StyleSheet.create({
     transform: [{ rotate: "-20deg" }],
   },
   inputgroup: {
-    marginVertical:15,
+    marginVertical:20,
     width: "85%",
     zIndex: 1,
   },
@@ -51,6 +52,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 20,
   },
   btnLogin: {
+    marginTop:80,
     marginVertical: 10,
     borderRadius: 10,
     backgroundColor: "red",

@@ -5,6 +5,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     position: "relative",
+    backgroundColor: "#000040",
   },
   background: {
     position: "absolute",
@@ -35,31 +36,34 @@ const styles = StyleSheet.create({
     transform: [{ rotate: "-20deg" }],
   },
   inputgroup: {
-    width: "75%",
+    width: "85%",
     zIndex: 1,
     marginBottom: 25,
   },
   input: {
     backgroundColor: "white",
-    height: 50,
+    height: 60,
     borderColor: "gray",
     borderWidth: 1,
-    padding: 15,
-    fontSize: 18,
-    borderRadius: 20,
+    paddingHorizontal: 20,
+    fontSize: 20,
+    borderRadius: 10,
+    textShadowOffset: { width: 5, height: 3 },
+    textShadowRadius: 20,
   },
   btnLogin: {
+    marginTop:50,
     marginVertical: 10,
-    borderRadius: 20,
+    borderRadius: 10,
     backgroundColor: "red",
-    height: 50,
-    width: 150,
+    height: 60,
+    width: '85%',
     justifyContent: "center",
     alignItems: "center",
   },
   loginText: {
     color: "#fff",
-    fontSize: 17,
+    fontSize: 25,
     fontWeight: 500,
   },
   extendContainer: {
@@ -71,7 +75,7 @@ const styles = StyleSheet.create({
   },
   extendContainerText: {
     color: "#fff",
-    fontSize:16
+    fontSize: 16,
   },
 });
 export default styles;

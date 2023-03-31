@@ -16,7 +16,6 @@ const RegisterScreen = () => {
   const logo = require("../../assets/logo.png");
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.background} source={bg} />
       <View style={styles.titleApp}>
         <Image style={styles.logo} source={logo} />
         <Text style={styles.titleContent}>DANKEN</Text>
@@ -24,8 +23,6 @@ const RegisterScreen = () => {
       <View style={styles.inputgroup}>
         <TextInput placeholder="Tài khoản" style={styles.input} />
       </View>
-
-
       <View style={styles.inputgroup}>
         <TextInput
           secureTextEntry={true}

@@ -23,7 +23,7 @@ const LoginScreen = () => {
       params,
       (res) => {
         Toast.success("Đăng nhập thành công");
-        navigation.navigate("Home")
+        navigation.navigate("Home");
       },
       (err) => {
         console.log(err);
@@ -33,7 +33,6 @@ const LoginScreen = () => {
   };
   return (
     <View style={styles.container}>
-      <ImageBackground style={styles.background} source={bg} />
       <View style={styles.titleApp}>
         <Image style={styles.logo} source={logo} />
         <Text style={styles.titleContent}>DANKEN</Text>
@@ -56,11 +55,11 @@ const LoginScreen = () => {
           style={styles.input}
         />
       </View>
-      <View style={styles.btnLogin}>
-        <TouchableOpacity onPress={handleLogin}>
+      <TouchableOpacity style={styles.btnLogin} onPress={handleLogin}>
+        <View >
           <Text style={styles.loginText}>Đăng nhập</Text>
-        </TouchableOpacity>
-      </View>
+        </View>
+      </TouchableOpacity>
       <View style={styles.extendContainer}>
         <Text style={styles.extendContainerText}>Quên mật khẩu?</Text>
         <TouchableOpacity onPress={() => navigation.navigate("Register")}>
