@@ -8,6 +8,8 @@ import RegisterScreen from "../register";
 import HomeTab from "../childScreen/home";
 import UserPage from "../childScreen/user";
 import { FontAwesome } from "@expo/vector-icons";
+import AddBill from "../childScreen/addBill";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -21,6 +23,7 @@ const HomeScreen = () => {
   const historyAct = require("../../assets/historyAct.png");
   const addIcon = require("../../assets/addIcon.png");
   const [isActive, setIsActive] = useState(0);
+  
 
   return (
     <Tab.Navigator
@@ -44,6 +47,7 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
+            <TouchableOpacity >
             <FontAwesome
               style={
                 isActive === 0
@@ -52,6 +56,7 @@ const HomeScreen = () => {
               }
               name="home"
             />
+            </TouchableOpacity>
           ),
           headerTitleAlign: "center",
         }}
@@ -66,6 +71,7 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
+            <TouchableOpacity >
             <FontAwesome
               style={
                 isActive === 1
@@ -74,12 +80,13 @@ const HomeScreen = () => {
               }
               name="history"
             />
+            </TouchableOpacity>
           ),
         }}
       />
       <Tab.Screen
         name="Add bill"
-        component={LoginScreen}
+        component={AddBill}
         listeners={{
           tabPress: () => {
             setIsActive(2);
@@ -87,6 +94,7 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
+            <TouchableOpacity >
             <LinearGradient
               colors={["#ef32d9", "#89fffd"]}
               style={styles.addIcon}
@@ -96,6 +104,7 @@ const HomeScreen = () => {
                 name="plus"
               />
             </LinearGradient>
+            </TouchableOpacity>
           ),
         }}
       />
@@ -109,6 +118,7 @@ const HomeScreen = () => {
         component={LoginScreen}
         options={{
           tabBarIcon: () => (
+            <TouchableOpacity >
             <FontAwesome
               style={
                 isActive === 4
@@ -117,6 +127,7 @@ const HomeScreen = () => {
               }
               name="bell"
             />
+            </TouchableOpacity>
           ),
         }}
       />
@@ -130,6 +141,7 @@ const HomeScreen = () => {
         component={UserPage}
         options={{
           tabBarIcon: () => (
+            <TouchableOpacity >
             <FontAwesome
               style={
                 isActive === 3
@@ -138,6 +150,7 @@ const HomeScreen = () => {
               }
               name="user"
             />
+            </TouchableOpacity>
           ),
         }}
       />

@@ -11,6 +11,7 @@ import { Toast } from "toastify-react-native";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { LoginRequest } from "../../services/userService";
+import { LinearGradient } from "expo-linear-gradient";
 const LoginScreen = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -55,10 +56,12 @@ const LoginScreen = () => {
           style={styles.input}
         />
       </View>
-      <TouchableOpacity style={styles.btnLogin} onPress={handleLogin}>
-        <View >
-          <Text style={styles.loginText}>Đăng nhập</Text>
-        </View>
+      <TouchableOpacity  onPress={handleLogin}>
+        <LinearGradient style={styles.btnLogin} colors={["#ef32d9", "#89fffd"]}>
+          <View>
+            <Text style={styles.loginText}>Đăng nhập</Text>
+          </View>
+        </LinearGradient>
       </TouchableOpacity>
       <View style={styles.extendContainer}>
         <Text style={styles.extendContainerText}>Quên mật khẩu?</Text>

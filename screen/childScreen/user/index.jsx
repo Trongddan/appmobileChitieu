@@ -4,6 +4,7 @@ import styles from "./styles";
 
 import { FontAwesome } from "@expo/vector-icons";
 import CardItem from "../../../components/card";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const UserPage = () => {
   const avatar = require("../../../assets/avatar.png");
 
@@ -15,6 +16,23 @@ const UserPage = () => {
         <FontAwesome style={styles.change_user} name="recycle" />
       </View>
       <CardItem />
+      <View style={styles.listAction}>
+      <TouchableOpacity >
+        <View style={styles.actionItem}>
+          <Text style={styles.actionItem_text}>Cập nhật coin</Text>
+        </View>
+        </TouchableOpacity>
+        <TouchableOpacity >
+        <View style={styles.actionItem}>
+          <Text style={styles.actionItem_text}>Thông tin tài khoản</Text>
+        </View>
+        </TouchableOpacity>
+        <TouchableOpacity >
+        <View style={styles.actionItem}>
+          <Text style={styles.actionItem_text}>Đổi mật khẩu</Text>
+        </View>
+        </TouchableOpacity>
+      </View>
     </View>
   );
 };

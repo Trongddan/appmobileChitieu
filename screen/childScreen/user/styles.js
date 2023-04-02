@@ -33,5 +33,27 @@ const styles = StyleSheet.create({
     position: "absolute",
     right: 20,
   },
+  listAction:{
+    
+  },
+  actionItem:{
+    height:60,
+    backgroundColor:'#20204D',
+    // shadowOffset:{width:15,height:15},
+    // shadowColor:'gray',
+    // shadowRadius:10,
+    // shadowOpacity:1,
+    borderRadius:20,
+    marginVertical:5,
+    alignItems:'center',
+    justifyContent:'center',
+    // elevation:5
+  },
+  actionItem_text:{
+    color:"#ffffff",
+    fontSize:18,
+    fontWeight:'600',
+  
+  }
 });
 export default styles;
