@@ -44,64 +44,49 @@ const styles = StyleSheet.create({
     width: 360,
     borderRadius: 23,
     backgroundColor: "blue",
-    flexDirection:'row'
+    flexDirection: "row",
   },
   detail_coin: {
     height: "100%",
     width: "70%",
-    padding:20,
-    flexDirection:'column',
-    justifyContent:'space-around'
+    padding: 20,
+    flexDirection: "column",
+    justifyContent: "space-around",
   },
   detail_coin_total: {
     color: "#ffffff",
-    fontSize:30,
-    fontWeight:"900",
-
+    fontSize: 30,
+    fontWeight: "900",
   },
   detail_coin_date: {
     color: "#ffffff",
   },
-  wifiIcon:{
-    position:'absolute',
-    right:30,
-    top:"50%",
-    transform:[{translateY:-20}],
-    width:30,
-    height:30,
-    resizeMode:"contain"
+  wifiIcon: {
+    position: "absolute",
+    right: 30,
+    top: "50%",
+    transform: [{ translateY: -20 }],
+    width: 30,
+    height: 30,
+    resizeMode: "contain",
   },
-  title:{
-    color:'#ffffff',
-    fontSize:25,
-    fontWeight:'bold',
-    paddingHorizontal:20
+  title_container: {
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
   },
-  item_bill:{
-    height:60,
-    backgroundColor:'red',
-    flexDirection:'row',
-    alignItems:"center",
-    paddingHorizontal:20
+  title_see_all: {
+    color: "#ffffff",
   },
-  item_bill_number:{
-    width:40,
-    height:40,
-    backgroundColor:'blue',
-    justifyContent:'center',
-    alignItems:'center',
-    borderRadius:50
+  title: {
+    color: "#ffffff",
+    fontSize: 25,
+    fontWeight: "bold",
   },
-  item_bill_numberText:{
-    color:"#ffffff",
-    fontSize:15,
-    fontWeight:'600'
+  ListBillItem: {
+    marginVertical: 5,
+    paddingVertical: 10,
   },
-  item_bill_content:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    paddingHorizontal:20,
-    width:'90%'
-  }
 });
 export default styles;

@@ -6,8 +6,8 @@ import styles from "./styles";
 import LoginScreen from "../login";
 import RegisterScreen from "../register";
 import HomeTab from "../childScreen/home";
-
-
+import UserPage from "../childScreen/user";
+import { FontAwesome } from "@expo/vector-icons";
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -27,7 +27,7 @@ const HomeScreen = () => {
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
         tabBarLabelStyle: { color: "blue", fontSize: 15, marginVertical: 12 },
-        tabBarStyle: { height: 50},
+        tabBarStyle: { height: 50, backgroundColor: "#20204D" },
         tabBarShowLabel: false,
         headerStyle: {
           height: 1,
@@ -43,12 +43,16 @@ const HomeScreen = () => {
           },
         }}
         options={{
-          tabBarIcon: () =>
-            isActive === 0 ? (
-              <Image style={styles.icon} source={homeActIcon} />
-            ) : (
-              <Image style={styles.icon} source={homeIcon} />
-            ),
+          tabBarIcon: () => (
+            <FontAwesome
+              style={
+                isActive === 0
+                  ? { color: "white", fontSize: 25 }
+                  : { color: "#9491AE", fontSize: 25 }
+              }
+              name="home"
+            />
+          ),
           headerTitleAlign: "center",
         }}
       />
@@ -61,11 +65,15 @@ const HomeScreen = () => {
           },
         }}
         options={{
-          tabBarIcon: () =>
-          isActive === 1 ? (
-            <Image style={styles.icon} source={historyAct} />
-          ) : (
-            <Image style={styles.icon} source={history} />
+          tabBarIcon: () => (
+            <FontAwesome
+              style={
+                isActive === 1
+                  ? { color: "white", fontSize: 25 }
+                  : { color: "#9491AE", fontSize: 25 }
+              }
+              name="history"
+            />
           ),
         }}
       />
@@ -83,25 +91,13 @@ const HomeScreen = () => {
               colors={["#ef32d9", "#89fffd"]}
               style={styles.addIcon}
             >
-              <Image source={addIcon} />
+              <FontAwesome
+                style={{ color: "white", fontSize: 25 }}
+                name="plus"
+              />
             </LinearGradient>
           ),
         }}
-      />
-      <Tab.Screen
-        name="Settings"
-        listeners={{
-          tabPress: () => {
-            setIsActive(3);
-          },
-        }}
-        component={RegisterScreen}
-        options={{ tabBarIcon: () =>
-          isActive === 3 ? (
-            <Image style={styles.icon} source={userIconAct} />
-          ) : (
-            <Image style={styles.icon} source={userIcon} />
-          ), }}
       />
       <Tab.Screen
         listeners={{
@@ -112,11 +108,36 @@ const HomeScreen = () => {
         name="Notification"
         component={LoginScreen}
         options={{
-          tabBarIcon: () =>
-          isActive === 4 ? (
-            <Image style={styles.icon} source={notificationAct} />
-          ) : (
-            <Image style={styles.icon} source={notification} />
+          tabBarIcon: () => (
+            <FontAwesome
+              style={
+                isActive === 4
+                  ? { color: "white", fontSize: 25 }
+                  : { color: "#9491AE", fontSize: 25 }
+              }
+              name="bell"
+            />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Settings"
+        listeners={{
+          tabPress: () => {
+            setIsActive(3);
+          },
+        }}
+        component={UserPage}
+        options={{
+          tabBarIcon: () => (
+            <FontAwesome
+              style={
+                isActive === 3
+                  ? { color: "white", fontSize: 25 }
+                  : { color: "#9491AE", fontSize: 25 }
+              }
+              name="user"
+            />
           ),
         }}
       />
