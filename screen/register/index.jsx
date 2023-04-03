@@ -10,6 +10,7 @@ import {
   KeyboardAvoidingView
 } from "react-native";
 import styles from "./styles";
+import { LinearGradient } from "expo-linear-gradient";
 const RegisterScreen = () => {
   const navigation = useNavigation();
   const bg = require("../../assets/bg.jpg");
@@ -39,7 +40,11 @@ const RegisterScreen = () => {
       </View>
       <View style={styles.btnLogin}>
         <TouchableOpacity>
-          <Text style={styles.loginText}>Đăng Ký</Text>
+        <LinearGradient style={styles.btnLogin} colors={["#ef32d9", "#89fffd"]}>
+          <View>
+            <Text style={styles.loginText}>Đăng ký</Text>
+          </View>
+        </LinearGradient>
         </TouchableOpacity>
       </View>
       <View style={styles.extendContainer}>
