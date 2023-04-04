@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     textShadowRadius: 20,
   },
   btnLogin: {
-    marginTop:50,
+    marginTop: 50,
     marginVertical: 10,
     borderRadius: 10,
     height: 60,
@@ -75,6 +75,10 @@ const styles = StyleSheet.create({
   extendContainerText: {
     color: "#fff",
     fontSize: 16,
+  },
+  warning_text: {
+    color: "yellow",
+    fontSize: 15,
   },
 });
 export default styles;
