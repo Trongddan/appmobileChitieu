@@ -5,9 +5,8 @@ import {useNavigation} from "@react-navigation/native"
 import { FontAwesome } from "@expo/vector-icons";
 import CardItem from "../../../components/card";
 import { TouchableOpacity } from "react-native-gesture-handler";
-const UserPage = () => {
+const UserPage = ({navigation}) => {
   const avatar = require("../../../assets/avatar.png");
-  const navigation = useNavigation()
   const handleAddCoin =()=>{
     navigation.navigate('Add coin')
   }
