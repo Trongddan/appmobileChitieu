@@ -9,13 +9,12 @@ import {
 } from "react-native";
 import { Toast } from "toastify-react-native";
 import styles from "./styles";
-import { useNavigation } from "@react-navigation/native";
 import { LoginRequest } from "../../services/userService";
 import { LinearGradient } from "expo-linear-gradient";
-const LoginScreen = () => {
+import { storage } from "../../storage/storage";
+const LoginScreen = ({navigation}) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const navigation = useNavigation();
   const bg = require("../../assets/bg.jpg");
   const logo = require("../../assets/logo.png");
   const handleLogin = () => {
@@ -23,6 +22,8 @@ const LoginScreen = () => {
     LoginRequest(
       params,
       (res) => {
+        console.log(res.data);
+        storage.setUser()
         Toast.success("Đăng nhập thành công");
         navigation.navigate("Home");
       },

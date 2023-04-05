@@ -5,16 +5,20 @@ import styles from "./styles";
 import { ScrollView } from "react-native-gesture-handler";
 import BillItem from "../../../components/billItem/index";
 import CardItem from "../../../components/card";
+import { storage } from "../../../storage/storage";
 
 const HomeTab = () => {
   const avatar = require("../../../assets/avatar.png");
   const wifiIcon = require("../../../assets/wifiIcon.png");
+  
+  const username = storage.getUserName()
+  console.log(username);
   return (
     <View style={styles.home_container}>
       <View style={styles.user_intro}>
         <View style={styles.user_intro_name}>
           <Text style={styles.user_intro_name_text}>Hello,</Text>
-          <Text style={styles.user_intro_name_textName}> Danken</Text>
+          <Text style={styles.user_intro_name_textName}> "Danken"</Text>
         </View>
         <View style={styles.user_intro_avatar}>
           <Image style={styles.user_intro_avatar_img} source={avatar} />

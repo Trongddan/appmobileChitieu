@@ -5,8 +5,10 @@ import {useNavigation} from "@react-navigation/native"
 import { FontAwesome } from "@expo/vector-icons";
 import CardItem from "../../../components/card";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { storage } from "../../../storage/storage";
 const UserPage = ({navigation}) => {
   const avatar = require("../../../assets/avatar.png");
+  const username = storage.getUserName();
   const handleAddCoin =()=>{
     navigation.navigate('Add coin')
   }
@@ -22,7 +24,7 @@ const UserPage = ({navigation}) => {
     <View style={styles.user_page}>
       <View style={styles.user_page_item}>
         <Image style={styles.user_page_avt} source={avatar} />
-        <Text style={styles.user_page_name}>Danken</Text>
+        <Text style={styles.user_page_name}>{username}</Text>
         <FontAwesome onPress={handleLogOut} style={styles.change_user} name="recycle" />
       </View>
       <CardItem />
