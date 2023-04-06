@@ -1,5 +1,5 @@
 import { Text, View, Image } from "react-native";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
 import { ScrollView } from "react-native-gesture-handler";
@@ -10,15 +10,23 @@ import { storage } from "../../../storage/storage";
 const HomeTab = () => {
   const avatar = require("../../../assets/avatar.png");
   const wifiIcon = require("../../../assets/wifiIcon.png");
-  
-  const username = storage.getUserName()
-  console.log(username);
+  const [username,setUsename]=useState("")
+  const getuserName = async()=>{
+    const user = await storage.getUserName();
+    if(user!=null){
+      setUsename(user.username)
+    }
+  }
+  useEffect(()=>{
+    getuserName()
+  },[])
+
   return (
     <View style={styles.home_container}>
       <View style={styles.user_intro}>
         <View style={styles.user_intro_name}>
           <Text style={styles.user_intro_name_text}>Hello,</Text>
-          <Text style={styles.user_intro_name_textName}> "Danken"</Text>
+          <Text style={styles.user_intro_name_textName}>{username}</Text>
         </View>
         <View style={styles.user_intro_avatar}>
           <Image style={styles.user_intro_avatar_img} source={avatar} />

@@ -1,5 +1,5 @@
 import { View, Text, Image,Alert } from "react-native";
-import React from "react";
+import React,{useEffect,useState} from "react";
 import styles from "./styles";
 import {useNavigation} from "@react-navigation/native"
 import { FontAwesome } from "@expo/vector-icons";
@@ -7,8 +7,17 @@ import CardItem from "../../../components/card";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { storage } from "../../../storage/storage";
 const UserPage = ({navigation}) => {
+  const [username,setUsename]=useState("")
   const avatar = require("../../../assets/avatar.png");
-  const username = storage.getUserName();
+  const getuserName = async()=>{
+    const user = await storage.getUserName();
+    if(user!=null){
+      setUsename(user.username)
+    }
+  }
+  useEffect(()=>{
+    getuserName()
+  },[])
   const handleAddCoin =()=>{
     navigation.navigate('Add coin')
   }
