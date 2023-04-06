@@ -20,6 +20,7 @@ const HomeTab = () => {
   useEffect(()=>{
     getuserName()
   },[])
+  
 
   return (
     <View style={styles.home_container}>

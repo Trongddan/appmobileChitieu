@@ -23,7 +23,7 @@ const LoginScreen = ({navigation}) => {
       params,
       (res) => {
         console.log(res.data);
-        storage.setUser(res.data.accessToken, res.data.username)
+        storage.setUser(res.data.accessToken, res.data.username,res.data._id)
         Toast.success("Đăng nhập thành công");
         navigation.navigate("Home");
       },
