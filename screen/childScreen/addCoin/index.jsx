@@ -1,14 +1,13 @@
-import { View, Text, Image, TextInput, Alert } from "react-native";
+import { View, Text,TextInput, Alert } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
 import { FontAwesome } from "@expo/vector-icons";
 import { Toast } from "toastify-react-native";
-import CardItem from "../../../components/card";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { LinearGradient } from "expo-linear-gradient";
 import { addCoin } from "../../../services/userService";
-
+import { storage } from "../../../storage/storage";
 const AddCoin = () => {
   const avatar = require("../../../assets/avatar.png");
   const navigation = useNavigation();
@@ -19,18 +18,22 @@ const AddCoin = () => {
       {
         text: "Đồng ý",
         onPress: () => {
-          addCoin(
-            {
-              coin: amount,
-            },
-            (res) => {
-              Toast.success(res.data.mess)
-            },
-            (err) => {
-              console.log(err);
-              // Toast.success(err.data.mess)
-            }
-          );
+          storage.getUserID().then((res) => {
+            addCoin(
+              {
+                id: res,
+                coin: amount,
+              },
+              (res) => {
+                Toast.success(res.data.mess);
+                navigation.navigate("Home");
+              },
+              (err) => {
+                console.log(err);
+                // Toast.success(err.data.mess)
+              }
+            );
+          });
         },
       },
     ]);
@@ -39,7 +42,7 @@ const AddCoin = () => {
     navigation.goBack();
   };
   const handleAmountChange = (text) => {
-    setAmount(text)
+    setAmount(text);
   };
 
   return (

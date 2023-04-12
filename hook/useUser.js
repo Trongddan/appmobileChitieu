@@ -1,23 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { getUserById } from "../services/userService";
+import { storage } from "../storage/storage";
 
 const useUser = () => {
+
   const [userInfo, setUserInfo] = useState();
-  const getUserInfoByID = () => {
+  const getUserInfoByID = (id) => {
     getUserById(
-      null,
+      { id: id },
       (res) => {
-        setUserInfo(res.data)
+        setUserInfo(res.data);
       },
       (err) => {
         console.log(err);
       }
     );
   };
-  return{
+  return {
     userInfo,
-    getUserInfoByID
-  }
+    getUserInfoByID,
+  };
 };
 
 export default useUser;

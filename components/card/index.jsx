@@ -2,13 +2,15 @@ import { View, Text, Image } from "react-native";
 import React, { useEffect } from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
-import { useFocusEffect} from "@react-navigation/native"
+import { useFocusEffect } from "@react-navigation/native";
 import useUser from "../../hook/useUser";
+import { storage } from "../../storage/storage";
 const CardItem = () => {
-  const {userInfo,getUserInfoByID}=useUser();
+  const { userInfo, getUserInfoByID } = useUser();
+
   useFocusEffect(
     React.useCallback(() => {
-     getUserInfoByID()
+      storage.getUserID().then((res) => getUserInfoByID(res));
     }, [])
   );
   const wifiIcon = require("../../assets/wifiIcon.png");
