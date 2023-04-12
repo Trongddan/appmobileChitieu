@@ -66,3 +66,30 @@ export const postRequest = (
       }
     });
 };
+export const putRequest = (
+  url = "",
+  params,
+  successCallback,
+  errorCallBack
+) => {
+  return axios
+    .put(url, params)
+    .then((res) => {
+      if (successCallback) {
+        try {
+          successCallback(res);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    })
+    .catch((err) => {
+      if (errorCallBack) {
+        try {
+          errorCallBack(err);
+        } finally {
+          console.log(err);
+        }
+      }
+    });
+};

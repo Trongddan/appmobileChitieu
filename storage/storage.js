@@ -2,45 +2,40 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 AsyncStorage;
 export const storage = {
-  setUser: async (accessToken, username,userId) => {
-    try {
-      await AsyncStorage.setItem("accessToken", accessToken);
-      await AsyncStorage.setItem("userName", username);
-      await AsyncStorage.setItem('userId',userId)
-    } catch (error) {
-      console.log("lưu trữ dữ liệu bị lỗi");
-    }
+  setUser: (accessToken, username, userId) => {
+       AsyncStorage.setItem("accessToken", accessToken);
+       AsyncStorage.setItem("userName", username);
+       AsyncStorage.setItem("userId", userId);
   },
 
-  getUserName: async () => {
+  getUserName:  () => {
+      const username =  AsyncStorage.getItem("userName");
+      return username
+  },
+  getAccessToken: () => {
+    
+      const token =  AsyncStorage.getItem("accessToken");
+      if (token != null) {
+        return token;
+      }
+  },
+  getUserID: async () => {
     try {
-      const username = await AsyncStorage.getItem("userName");
-      if (username !== null) {
-        // Dữ liệu tồn tại trong AsyncStorage
-        return { username};
+      const id = await AsyncStorage.getItem("userId");
+      if (id != null) {
+        return {id};
       }
     } catch (error) {
       return null;
     }
   },
-  getAccessToken: async()=>{
+  removeUser: async () => {
     try {
-        const token = await AsyncStorage.getItem("accessToken");
-        if(token!=null){
-            return token
-        }
+      await AsyncStorage.removeItem("accessToken");
+      await AsyncStorage.removeItem("userName");
+      await AsyncStorage.removeItem("userId");
     } catch (error) {
-        return null
+      console.log(error);
     }
   },
-  getUserID: async()=>{
-    try {
-        const token = await AsyncStorage.getItem("userId");
-        if(token!=null){
-            return token
-        }
-    } catch (error) {
-        return null
-    }
-  }
 };

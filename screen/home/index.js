@@ -13,15 +13,6 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
-  const homeIcon = require("../../assets/home.png");
-  const homeActIcon = require("../../assets/homeAct.png");
-  const userIcon = require("../../assets/user.png");
-  const userIconAct = require("../../assets/userAct.png");
-  const notification = require("../../assets/notification.png");
-  const notificationAct = require("../../assets/notificationAct.png");
-  const history = require("../../assets/history.png");
-  const historyAct = require("../../assets/historyAct.png");
-  const addIcon = require("../../assets/addIcon.png");
   const [isActive, setIsActive] = useState(0);
   
 

@@ -1,7 +1,7 @@
 import { View, Text, Image,Alert } from "react-native";
 import React,{useEffect,useState} from "react";
 import styles from "./styles";
-import {useNavigation} from "@react-navigation/native"
+
 import { FontAwesome } from "@expo/vector-icons";
 import CardItem from "../../../components/card";
 import { TouchableOpacity } from "react-native-gesture-handler";
@@ -21,11 +21,16 @@ const UserPage = ({navigation}) => {
   const handleAddCoin =()=>{
     navigation.navigate('Add coin')
   }
+  const handleRemoveUser = async()=>{
+     await storage.removeUser();
+  }
+
   const handleLogOut =()=>{
     Alert.alert("Thông báo", "Bạn có chắc chắn muốn đăng xuất khỏi thiết bị",[
       {text:"cancle",onPress:()=>{}},
       {text:"Ok",onPress:()=>{
-        console.log('ok');
+        handleRemoveUser()
+        navigation.navigate('Login')
       }}
     ])
   }

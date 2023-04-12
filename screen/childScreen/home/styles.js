@@ -90,3 +90,25 @@ const styles = StyleSheet.create({
   },
 });
 export default styles;
+
+
+
+
+
+
+// const myPromise =() => Promise.resolve("I have resolved");
+// function firstFunction(){
+//   myPromise().then((res)=>console.log("a ",res));
+//   console.log("second");
+// }
+// firstFunction();
+
+
+
+
+
+async function secondFunction(){
+  console.log(await setTimeout(()=>console.log('a'),3000));
+  console.log("second");
+}
+secondFunction()

@@ -9,16 +9,17 @@ import { storage } from "../../../storage/storage";
 
 const HomeTab = () => {
   const avatar = require("../../../assets/avatar.png");
-  const wifiIcon = require("../../../assets/wifiIcon.png");
   const [username,setUsename]=useState("")
-  const getuserName = async()=>{
-    const user = await storage.getUserName();
-    if(user!=null){
-      setUsename(user.username)
-    }
-  }
+  // const getuserName = async()=>{
+  //   const user = await storage.getUserName();
+  //   console.log("alo" ,user);
+  //   // if(user!=null){
+  //   //   setUsename(user.username)
+  //   // }
+  //   return user;
+  // }
   useEffect(()=>{
-    getuserName()
+
   },[])
   
 
@@ -27,7 +28,7 @@ const HomeTab = () => {
       <View style={styles.user_intro}>
         <View style={styles.user_intro_name}>
           <Text style={styles.user_intro_name_text}>Hello,</Text>
-          <Text style={styles.user_intro_name_textName}>{username}</Text>
+          <Text style={styles.user_intro_name_textName}>{username && username}</Text>
         </View>
         <View style={styles.user_intro_avatar}>
           <Image style={styles.user_intro_avatar_img} source={avatar} />
