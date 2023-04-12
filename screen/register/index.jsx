@@ -7,7 +7,8 @@ import {
   TextInput,
   TouchableOpacity,
   View,
-  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard
 } from "react-native";
 import styles from "./styles";
 import { LinearGradient } from "expo-linear-gradient";
@@ -35,6 +36,7 @@ const RegisterScreen = () => {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <View style={styles.titleApp}>
         <Image style={styles.logo} source={logo} />
@@ -93,6 +95,7 @@ const RegisterScreen = () => {
         </TouchableOpacity>
       </View>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 

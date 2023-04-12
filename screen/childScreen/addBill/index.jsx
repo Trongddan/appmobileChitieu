@@ -1,4 +1,4 @@
-import { View, Text, Image, TextInput, Alert } from "react-native";
+import { View, Text, Image, TextInput, Alert,TouchableWithoutFeedback, Keyboard } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 
@@ -63,14 +63,16 @@ const AddBill = () => {
     setPrice(text);
   };
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.AddBill}>
       <View style={styles.title}>
         <Text style={styles.title_text}>Thêm khoản chi</Text>
       </View>
       <View style={styles.inputgroup}>
+
         <TextInput
           value={name}
-          multiline
+
           placeholder="Khoản chi"
           onChangeText={(text) => setName(text)}
           style={styles.input}
@@ -78,7 +80,7 @@ const AddBill = () => {
       </View>
       <View style={styles.inputgroup}>
         <TextInput
-          multiline
+
           placeholder="Số tiền"
           keyboardType="numeric"
           value={price}
@@ -92,6 +94,7 @@ const AddBill = () => {
         </LinearGradient>
       </TouchableOpacity>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 

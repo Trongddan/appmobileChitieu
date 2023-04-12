@@ -21,7 +21,7 @@ const HomeScreen = () => {
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
         tabBarLabelStyle: { color: "blue", fontSize: 15, marginVertical: 12 },
-        tabBarStyle: { height: 50, backgroundColor: "#20204D" },
+        tabBarStyle: { height: 80, backgroundColor: "#20204D",paddingHorizontal:15,paddingVertical:10 },
         tabBarShowLabel: false,
         headerStyle: {
           height: 1,

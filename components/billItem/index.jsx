@@ -3,6 +3,9 @@ import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
 import styles from "./styles";
 const BillItem = ({ item, index }) => {
+  const time = new Date(item.createdAt);
+  const localTime=time.toLocaleTimeString('en-US',
+  {timeZone:'Asia/Ho_Chi_Minh',hour12:true,hour:'numeric',minute:'numeric'});
   return (
     <View style={styles.item_bill}>
       <LinearGradient
@@ -19,8 +22,8 @@ const BillItem = ({ item, index }) => {
           <Text style={styles.item_bill_content_namedate}>today</Text>
         </View>
         <View style={styles.item_bill_content_name}>
-          <Text style={styles.item_bill_content_namePrice}>-60k</Text>
-          <Text style={styles.item_bill_content_namehours}>2:00PM</Text>
+          <Text style={styles.item_bill_content_namePrice}>{`-${item.price/1000}k`}</Text>
+          <Text style={styles.item_bill_content_namehours}>{localTime}</Text>
         </View>
       </View>
     </View>

@@ -1,4 +1,4 @@
-import { View, Text,TextInput, Alert } from "react-native";
+import { View, Text,TextInput, Alert,TouchableWithoutFeedback, Keyboard } from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 import { useNavigation } from "@react-navigation/native";
@@ -46,13 +46,13 @@ const AddCoin = () => {
   };
 
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.AddBill}>
       <View style={styles.title}>
         <Text style={styles.title_text}>Thêm Khoản tiền</Text>
       </View>
       <View style={styles.inputgroup}>
         <TextInput
-          multiline
           placeholder="Số tiền"
           keyboardType="numeric"
           value={amount.length > 0 ? amount.toString() : 0}
@@ -71,6 +71,7 @@ const AddCoin = () => {
         </LinearGradient>
       </TouchableOpacity>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 

@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
   },
   item_bill_content_namehours: {
     color: "#B9B2C4",
+    width:80
   },
 });
 export default styles;

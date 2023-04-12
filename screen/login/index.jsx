@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Image, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { Image, Text, TextInput, TouchableOpacity, View, TouchableWithoutFeedback,Keyboard } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { Toast } from "toastify-react-native";
 import styles from "./styles";
@@ -29,6 +29,7 @@ const LoginScreen = () => {
     );
   };
   return (
+    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
     <View style={styles.container}>
       <View style={styles.titleApp}>
         <Image style={styles.logo} source={logo} />
@@ -66,6 +67,7 @@ const LoginScreen = () => {
         </TouchableOpacity>
       </View>
     </View>
+    </TouchableWithoutFeedback>
   );
 };
 
