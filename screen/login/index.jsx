@@ -10,7 +10,7 @@ const LoginScreen = () => {
   const navigation = useNavigation();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const bg = require("../../assets/bg.jpg");
+
   const logo = require("../../assets/logo.png");
   const handleLogin = () => {
     const params = { username: username, password: password };

@@ -4,7 +4,6 @@ import { LinearGradient } from "expo-linear-gradient";
 import React, { useState } from "react";
 import styles from "./styles";
 import LoginScreen from "../login";
-import RegisterScreen from "../register";
 import HomeTab from "../childScreen/home";
 import UserPage from "../childScreen/user";
 import { FontAwesome } from "@expo/vector-icons";
@@ -14,14 +13,19 @@ const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
   const [isActive, setIsActive] = useState(0);
-  
 
   return (
     <Tab.Navigator
+      unmountOnBlur={false}
       screenOptions={{
         tabBarActiveTintColor: "#e91e63",
         tabBarLabelStyle: { color: "blue", fontSize: 15, marginVertical: 12 },
-        tabBarStyle: { height: 80, backgroundColor: "#20204D",paddingHorizontal:15,paddingVertical:10 },
+        tabBarStyle: {
+          height: 80,
+          backgroundColor: "#20204D",
+          paddingHorizontal: 15,
+          paddingVertical: 10,
+        },
         tabBarShowLabel: false,
         headerStyle: {
           height: 1,
@@ -38,15 +42,15 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
-            <TouchableOpacity >
-            <FontAwesome
-              style={
-                isActive === 0
-                  ? { color: "white", fontSize: 25 }
-                  : { color: "#9491AE", fontSize: 25 }
-              }
-              name="home"
-            />
+            <TouchableOpacity>
+              <FontAwesome
+                style={
+                  isActive === 0
+                    ? { color: "white", fontSize: 25 }
+                    : { color: "#9491AE", fontSize: 25 }
+                }
+                name="home"
+              />
             </TouchableOpacity>
           ),
           headerTitleAlign: "center",
@@ -62,15 +66,15 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
-            <TouchableOpacity >
-            <FontAwesome
-              style={
-                isActive === 1
-                  ? { color: "white", fontSize: 25 }
-                  : { color: "#9491AE", fontSize: 25 }
-              }
-              name="history"
-            />
+            <TouchableOpacity>
+              <FontAwesome
+                style={
+                  isActive === 1
+                    ? { color: "white", fontSize: 25 }
+                    : { color: "#9491AE", fontSize: 25 }
+                }
+                name="history"
+              />
             </TouchableOpacity>
           ),
         }}
@@ -85,16 +89,16 @@ const HomeScreen = () => {
         }}
         options={{
           tabBarIcon: () => (
-            <TouchableOpacity >
-            <LinearGradient
-              colors={["#ef32d9", "#89fffd"]}
-              style={styles.addIcon}
-            >
-              <FontAwesome
-                style={{ color: "white", fontSize: 25 }}
-                name="plus"
-              />
-            </LinearGradient>
+            <TouchableOpacity>
+              <LinearGradient
+                colors={["#ef32d9", "#89fffd"]}
+                style={styles.addIcon}
+              >
+                <FontAwesome
+                  style={{ color: "white", fontSize: 25 }}
+                  name="plus"
+                />
+              </LinearGradient>
             </TouchableOpacity>
           ),
         }}
@@ -109,15 +113,15 @@ const HomeScreen = () => {
         component={LoginScreen}
         options={{
           tabBarIcon: () => (
-            <TouchableOpacity >
-            <FontAwesome
-              style={
-                isActive === 4
-                  ? { color: "white", fontSize: 25 }
-                  : { color: "#9491AE", fontSize: 25 }
-              }
-              name="bell"
-            />
+            <TouchableOpacity>
+              <FontAwesome
+                style={
+                  isActive === 4
+                    ? { color: "white", fontSize: 25 }
+                    : { color: "#9491AE", fontSize: 25 }
+                }
+                name="bell"
+              />
             </TouchableOpacity>
           ),
         }}
@@ -132,15 +136,15 @@ const HomeScreen = () => {
         component={UserPage}
         options={{
           tabBarIcon: () => (
-            <TouchableOpacity >
-            <FontAwesome
-              style={
-                isActive === 3
-                  ? { color: "white", fontSize: 25 }
-                  : { color: "#9491AE", fontSize: 25 }
-              }
-              name="user"
-            />
+            <TouchableOpacity>
+              <FontAwesome
+                style={
+                  isActive === 3
+                    ? { color: "white", fontSize: 25 }
+                    : { color: "#9491AE", fontSize: 25 }
+                }
+                name="user"
+              />
             </TouchableOpacity>
           ),
         }}

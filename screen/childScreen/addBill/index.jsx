@@ -1,4 +1,12 @@
-import { View, Text, Image, TextInput, Alert,TouchableWithoutFeedback, Keyboard } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TextInput,
+  Alert,
+  TouchableWithoutFeedback,
+  Keyboard,
+} from "react-native";
 import React, { useState } from "react";
 import styles from "./styles";
 
@@ -39,21 +47,24 @@ const AddBill = () => {
       {
         text: "Đồng ý",
         onPress: () => {
-          addExp(
-            {
-              name: name,
-              price: price,
-            },
-            (res) => {
-              UpdateCoin(price);
-              setName("");
-              setPrice();
-            },
-            (err) => {
-              Toast.error("Thêm thất bại");
-              navigation.navigate("Home");
-            }
-          );
+          storage.getUserID().then((res) => {
+            addExp(
+              {
+                name: name,
+                price: price,
+                useId: res,
+              },
+              (res) => {
+                UpdateCoin(price);
+                setName("");
+                setPrice();
+              },
+              (err) => {
+                Toast.error("Thêm thất bại");
+                navigation.navigate("Home");
+              }
+            );
+          });
         },
       },
     ]);
@@ -64,36 +75,36 @@ const AddBill = () => {
   };
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-    <View style={styles.AddBill}>
-      <View style={styles.title}>
-        <Text style={styles.title_text}>Thêm khoản chi</Text>
+      <View style={styles.AddBill}>
+        <View style={styles.title}>
+          <Text style={styles.title_text}>Thêm khoản chi</Text>
+        </View>
+        <View style={styles.inputgroup}>
+          <TextInput
+            value={name}
+            placeholder="Khoản chi"
+            onChangeText={(text) => setName(text)}
+            style={styles.input}
+          />
+        </View>
+        <View style={styles.inputgroup}>
+          <TextInput
+            placeholder="Số tiền"
+            keyboardType="numeric"
+            value={price}
+            onChangeText={handleAmountChange}
+            style={styles.input}
+          />
+        </View>
+        <TouchableOpacity onPress={handleAdd}>
+          <LinearGradient
+            colors={["#ef32d9", "#89fffd"]}
+            style={styles.btn_add}
+          >
+            <Text style={styles.btn_add_text}>Thêm mới</Text>
+          </LinearGradient>
+        </TouchableOpacity>
       </View>
-      <View style={styles.inputgroup}>
-
-        <TextInput
-          value={name}
-
-          placeholder="Khoản chi"
-          onChangeText={(text) => setName(text)}
-          style={styles.input}
-        />
-      </View>
-      <View style={styles.inputgroup}>
-        <TextInput
-
-          placeholder="Số tiền"
-          keyboardType="numeric"
-          value={price}
-          onChangeText={handleAmountChange}
-          style={styles.input}
-        />
-      </View>
-      <TouchableOpacity onPress={handleAdd}>
-        <LinearGradient colors={["#ef32d9", "#89fffd"]} style={styles.btn_add}>
-          <Text style={styles.btn_add_text}>Thêm mới</Text>
-        </LinearGradient>
-      </TouchableOpacity>
-    </View>
     </TouchableWithoutFeedback>
   );
 };

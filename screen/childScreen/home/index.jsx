@@ -8,24 +8,28 @@ import CardItem from "../../../components/card";
 import { storage } from "../../../storage/storage";
 import useExp from "../../../hook/useExp";
 import { FontAwesome } from "@expo/vector-icons";
+import { useIsFocused } from "@react-navigation/native";
 
 const HomeTab = () => {
+  const isfocus = useIsFocused();
   const avatar = require("../../../assets/avatar.png");
   const [username, setUsename] = useState("");
   const { listExp, getallExp } = useExp();
   useEffect(() => {
-    storage.getUserName().then((res) => setUsename(res));
-    getallExp();
-  }, []);
+    storage.getUserName().then((res) => {
+      setUsename(res);
+    });
+    storage.getUserID().then((res) => {
+      getallExp(res);
+    });
+  }, [isfocus]);
 
   return (
     <View style={styles.home_container}>
       <View style={styles.user_intro}>
         <View style={styles.user_intro_name}>
           <Text style={styles.user_intro_name_text}>Hello,</Text>
-          <Text style={styles.user_intro_name_textName}>
-            {username && username}
-          </Text>
+          <Text style={styles.user_intro_name_textName}>{username}</Text>
         </View>
         <View style={styles.user_intro_avatar}>
           <Image style={styles.user_intro_avatar_img} source={avatar} />

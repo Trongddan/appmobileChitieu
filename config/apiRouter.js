@@ -7,5 +7,5 @@ export const apiRouter = {
   updateCoin: BaseUrl + "user/update-coin/",
   // chi phi
   addExp: BaseUrl + "exp/add-exp",
-  getAllExp: BaseUrl + "exp/all-exp",
+  getAllExp: BaseUrl + "exp/all-exp/",
 };
